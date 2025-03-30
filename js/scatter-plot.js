@@ -77,13 +77,12 @@ const yScale = d3.scaleLinear()
     // Add points to the scatterplot
     svg.selectAll("circle")
         .data(data)
-        .enter()
-        .append("circle")
-        .attr("cx", d => xScale(d.star2))
-        .attr("cy", d => yScale(d.energy_consumpt))
-        .attr("r", 5) // Radius of the points
-        .attr("fill", "steelblue") // Color based on screen_tech
-        .attr("opacity", 0.7);
+        .join("circle")
+            .attr("cx", d => xScale(d.star2))
+            .attr("cy", d => yScale(d.energy_consumpt))
+            .attr("r", 5) // Radius of the points
+            .attr("fill", "steelblue") // Color based on screen_tech
+            .attr("opacity", 0.7);
 
     // Add a legend for the color scale
     // const legend = svg.append("g")
